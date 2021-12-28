@@ -1,5 +1,8 @@
 <h1><%= @article.title %></h1>
 
+<%= link_to "Back to Home Page", root_path%>
+
 <p><%= @article.body %></p>
 
-<%= link_to "Edit Article", edit_article_path%>
+<%= link_to "Edit Article", edit_article_path(@article)%> 
+<%# passing in @article to edit_article_path does not need to be explicit? %>
