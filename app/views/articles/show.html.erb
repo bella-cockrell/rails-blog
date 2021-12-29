@@ -6,5 +6,21 @@
 
 <ul>
     <li><%= link_to "Edit", edit_article_path(@article)%></li>
-    <li><%= button_to "Destroy", article_path(@article), method: :delete</li>
+    <li><%= button_to "Destroy", article_path(@article), method: :delete %></li>
 </ul>
+
+<h2>Add a comment:</h2>
+
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+    <p>
+        <%= form.label :commenter %>
+        <%= form.text_field :commenter %>
+    </p>
+    <p>
+        <%= form.label :body %>
+        <%= form.text_area :body %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>
